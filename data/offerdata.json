@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Buy 1 Get 1 Free",
+    "description": "On all pizzas every Friday!",
+    "validTill": "2024-07-01"
+  },
+  {
+    "id": 2,
+    "title": "20% Off Lunch",
+    "description": "Enjoy 20% off on lunch menu from 12-3pm.",
+    "validTill": "2024-08-01"
+  }
+] 

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "user": "Alice",
+    "review": "Amazing food and great service!",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "user": "Bob",
+    "review": "Loved the ambiance.",
+    "rating": 4
+  }
+] 

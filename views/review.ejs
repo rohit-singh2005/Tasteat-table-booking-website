@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Restaurant Name</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            width: 150px;
+            height: 120px;
+            border-radius: 50%;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px; /* Increased font size */
+            padding: 8px 16px; /* Added padding for better clickability */
+            border-radius: 4px; /* Rounded corners for links */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+        nav ul li a:hover {
+            background-color: #ffd700; /* Yellow background on hover */
+            color: #1a1a1a; /* Dark text on hover */
+        }
+        .cta-button {
+            background-color: transparent;
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .reservation-button {
+            background-color: #ffd700;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .reviews-content {
+            margin-top: 40px;
+        }
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .reviews-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .review-card {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+        .review-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .review-text {
+            font-style: italic;
+            color: #ccc;
+        }
+        .review-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .review-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        #yo{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div><img class="logo" src="Screenshot 2024-10-02 022710.png" alt=""></div>
+            <nav>
+                <ul>
+                    <li><a href="/homepage">Home</a></li>
+                    <li><a href="/review">Reviews</a></li>
+                    <li><a href="/ourmenu">Our Menu</a></li>
+                    <li><a href="/offer">Offers</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+            <button class="reservation-button"><a href="./reservation.ejs" style="color: inherit; text-decoration: none;">Reservation</a></button>
+        </header>
+
+        <div class="reviews-content">
+            <div class="reviews-header">
+                <h1>Our Clients Say</h1>
+                <p>We love to hear from customers, so please leave a comment or say hello in an email.</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img class="review-avatar" src="https://www.w3schools.com/w3images/avatar2.png" alt="John Doe's Avatar">
+                    <div class="review-name">John Doe</div>
+                    <div class="review-text">"This is how to be fabulous since you read. Anywhere you go people image is watched. The best dishes & images done are perfect."</div>
+                </div>
+                <div class="review-card">
+                    <img class="review-avatar" src="https://www.w3schools.com/w3images/avatar6.png" alt="Jane Smith's Avatar">
+                    <div class="review-name">Jane Smith</div>
+                    <div class="review-text">"I have visited this fantastic restaurant on several occasions, food is absolutely outstanding & attention to detail is in league of its own."</div>
+                </div>
+            </div>
+
+            <div class="review-images">
+                <img src="https://th.bing.com/th/id/OIP.mVjyO-Njj3fb7OFECgIytwHaFj?w=249&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Restaurant Interior 1" class="review-image">
+                <img src="https://thearchitectsdiary.com/wp-content/uploads/2018/06/Best-Restaurant-Interior-Design-In-India-3.jpg" alt="Restaurant Interior 2" class="review-image">
+                <img src="https://i.pinimg.com/originals/f3/6a/fb/f36afb7c75decde847c8c238aff70e23.jpg" alt="Restaurant Interior 3" class="review-image">
+            </div>
+        </div>
+    </div>
+    <div id="yo"><%- include('partials/footer') %></div>
+</body>
+</html>

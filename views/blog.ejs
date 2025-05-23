@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tastea - Blog</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .header {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 15px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f39c12;
+            text-align: center;
+        }
+        .logo img {
+            max-width: 150px;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .call-btn, .reserve-btn {
+            padding: 8px 16px;
+            border: 1px solid #f39c12;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .call-btn {
+            color: #f39c12;
+            background-color: transparent;
+        }
+        .reserve-btn {
+            background-color: #f39c12;
+            color: #121212;
+        }
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        h1, h2 {
+            color: #333333;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+        .blog-posts {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .blog-post {
+            width: 48%;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-post-content {
+            padding: 15px;
+        }
+        .blog-post-meta {
+            font-size: 0.8em;
+            color: #888888;
+            margin-bottom: 10px;
+        }
+        .blog-post h3 {
+            color: #333333;
+            margin: 10px 0;
+        }
+        .blog-post p {
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="call-btn">Call: xxx xxx xxx</a>
+            <div class="logo">
+                <img src="Screenshot 2024-10-02 022710.png" alt="The Tasteat Logo">
+            </div>
+            <a href="/reservation.ejs" class="reserve-btn">Reservation</a>
+        </div>
+        <nav class="nav">
+            <a href="/homepage">Home</a>
+            <a href="/review">Reviews</a>
+            <a href="/ourmenu">Our Menu</a>
+            <a href="/offer">Offers</a>
+            <a href="/blog">Blog</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <h1>Be First Who Read News</h1>
+        <p class="subtitle">Explore the latest stories about our dishes, offers, events and future plan here.</p>
+
+        <div class="blog-posts">
+            <div class="blog-post">
+                <img src="https://th.bing.com/th/id/OIP.TDKBZXOblk4L61v08dPUjQHaE5?w=255&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="US Cuisine">
+                <div class="blog-post-content">
+                    <div class="blog-post-meta">DELICIOUS • MARCH 28, 2024</div>
+                    <h3>The Legend Of US Cuisine: The Story Of Hungry People</h3>
+                    <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the food quality.</p>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://assets.thehansindia.com/h-upload/2022/09/24/1313726-national-cooking-day.jpg">
+                <div class="blog-post-content">
+                    <div class="blog-post-meta">COOKING • MARCH 03,2024</div>
+                    <h3>The Most Popular Delicious Food Of Mediterranean Cuisine</h3>
+                    <p>Strategies on low hanging fruit to identify a ballpark value added activity to beta test override the food quality.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

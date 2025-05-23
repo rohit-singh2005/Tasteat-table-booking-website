@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome to The Taste At!",
+    "content": "Discover our latest dishes and offers!",
+    "author": "Admin",
+    "date": "2024-06-01"
+  },
+  {
+    "id": 2,
+    "title": "Summer Specials",
+    "content": "Try our refreshing summer menu!",
+    "author": "Chef John",
+    "date": "2024-06-10"
+  }
+] 

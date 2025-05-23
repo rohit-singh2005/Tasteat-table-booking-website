@@ -1,0 +1,49 @@
+{
+    "menu": [
+        {
+            "category": "Starters",
+            "items": [
+                {
+                    "name": "Raw Scallops from Erquy",
+                    "description": "Shuck the scallop to serve raw with lemon juice",
+                    "price": "$40",
+                    "image": "https://th.bing.com/th/id/OIP.aOwN2foZ35cMcEfAh8e3ygHaFP?w=259&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                },
+                {
+                    "name": "Spring Roll",
+                    "description": "Chicken, egg, mixed vegetables",
+                    "price": "$20",
+                    "image": "http://ts4.mm.bing.net/th?id=OIP.lpxQIvkRQVU0axaKPLfXbAHaHa&pid=15.1"
+                }
+            ]
+        },
+        {
+            "category": "Main Dish",
+            "items": [
+                {
+                    "name": "Grilled Salmon with Dill Sauce",
+                    "description": "Brown rice, seasoned vegetables",
+                    "price": "$40",
+                    "image": "https://th.bing.com/th?id=OSK.46ae2311a45628075774d33eda5e73d0&w=205&h=307&rs=2&qlt=80&o=6&cdv=1&dpr=1.3&pid=16.1"
+                },
+                {
+                    "name": "Chicken Alfredo",
+                    "description": "Creamy pasta with grilled chicken",
+                    "price": "$30",
+                    "image": "https://th.bing.com/th/id/OIP.-8ygqQc5DlMONJrMIGcBzwAAAA?rs=1&pid=ImgDetMain"
+                }
+            ]
+        },
+        {
+            "category": "Desserts",
+            "items": [
+                {
+                    "name": "Apple Pie with Cream",
+                    "description": "Whipping cream, egg, cinnamon",
+                    "price": "$15",
+                    "image": "https://bing.com/th?id=OSK.c84ea4f256e6a7f91a60e62ab3960e8e"
+                }
+            ]
+        }
+    ]
+}

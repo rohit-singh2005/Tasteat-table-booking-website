@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tastea - Reservation</title>
+    <style>
+        /* Body and HTML Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            height: 100%;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 15px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f39c12;
+            text-align: center;
+        }
+        .logo img {
+            max-width: 150px;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px; /* Increased font size */
+            padding: 8px 16px; /* Added padding for better clickability */
+            border-radius: 4px; /* Rounded corners for links */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+        .nav a:hover {
+            background-color: #f39c12; /* Yellow background on hover */
+            color: #121212; /* Dark text on hover */
+        }
+
+        /* Reservation Button Styles */
+        .reserve-btn {
+            padding: 8px 16px;
+            background-color: #f39c12;
+            color: #121212;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            height: calc(100% - 100px);
+            position: relative;
+        }
+        .reservation-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 400px;
+            width: 100%; /* Ensure full width on smaller screens */
+        }
+        .reservation-form h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styles */
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .form-group label {
+            width: 100%; /* Full width for labels */
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: calc(50% - 5px);
+            padding: 10px;
+            background-color: transparent;
+            border: 1px solid #444;
+            color: #ffffff;
+        }
+        .form-group input::placeholder {
+            color: #888;
+        }
+
+        /* Book Button */
+        .book-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #121212;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Background Image */
+        .background-image {
+            flex: 1;
+            background-image: url('https://wallpapercave.com/wp/wp7576888.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="Screenshot 2024-10-02 022710.png" alt="The Tastea Logo">
+            </div>
+            <a href="#" class="reserve-btn">Reservation</a>
+        </div>
+        <nav class="nav">
+            <a href="/homepage">Home</a>
+            <a href="/review">Reviews</a>
+            <a href="/ourmenu">Our Menu</a>
+            <a href="/offer">Offers</a>
+            <a href="/blog">Blog</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="background-image"></div>
+        <div class="reservation-form">
+            <h1>Book Your Table</h1>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label for="name">
+                        <input type="text" id="name" placeholder="Name" required>
+                    </label>
+                    <label for="email">
+                        <input type="email" id="email" placeholder="Email" required>
+                    </label>
+                    <label for="persons">
+                        <input type="number" id="persons" placeholder="Persons" required min="1">
+                    </label>
+                    <label for="time">
+                        <input type="time" id="time" required>
+                    </label>
+                    <label for="date">
+                        <input type="date" id="date" required>
+                    </label>
+                </div>
+                <button type="submit" class="book-btn">Book A Table</button>
+            </form>
+            <div id="reservationDetails" style="display: none; color: #ffffff; margin-top: 20px;">
+                <h2>Reservation Confirmed!</h2>
+                <p><strong>Name:</strong> <span id="resName"></span></p>
+                <p><strong>Email:</strong> <span id="resEmail"></span></p>
+                <p><strong>Persons:</strong> <span id="resPersons"></span></p>
+                <p><strong>Time:</strong> <span id="resTime"></span></p>
+                <p><strong>Date:</strong> <span id="resDate"></span></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link JavaScript file -->
+    <script src="/public/reservation.js"></script>
+</body>
+</html>

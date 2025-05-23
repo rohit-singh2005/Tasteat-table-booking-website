@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Reviews - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .content {
+            padding: 20px;
+        }
+        .nav-link.active {
+            background-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <h3 class="text-white text-center mb-4">Admin Panel</h3>
+                <nav>
+                    <a href="/admin/dashboard" class="nav-link">Dashboard</a>
+                    <a href="/admin/menu" class="nav-link">Manage Menu</a>
+                    <a href="/admin/reviews" class="nav-link active">Manage Reviews</a>
+                    <a href="/admin/offers" class="nav-link">Manage Offers</a>
+                    <a href="/admin/blog" class="nav-link">Manage Blog</a>
+                    <a href="/admin/reservations" class="nav-link">Manage Reservations</a>
+                    <a href="/admin/users" class="nav-link">Manage Users</a>
+                    <a href="/" class="nav-link mt-4">Back to Site</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Manage Reviews</h2>
+                </div>
+
+                <!-- Reviews Table -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Rating</th>
+                                <th>Comment</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reviewsTable">
+                            <!-- Reviews will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Edit Review Modal -->
+                <div class="modal fade" id="editReviewModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Review</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editReviewForm">
+                                    <input type="hidden" name="id">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Rating</label>
+                                        <input type="number" class="form-control" name="rating" min="1" max="5" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Comment</label>
+                                        <textarea class="form-control" name="comment" required></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="updateReview()">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load reviews
+        async function loadReviews() {
+            try {
+                const response = await fetch('/api/reviewdata');
+                const reviews = await response.json();
+                const tableBody = document.getElementById('reviewsTable');
+                tableBody.innerHTML = reviews.map(review => `
+                    <tr>
+                        <td>${review.name}</td>
+                        <td>${review.rating}/5</td>
+                        <td>${review.comment}</td>
+                        <td>${new Date(review.date).toLocaleDateString()}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="editReview('${review._id}')">Edit</button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteReview('${review._id}')">Delete</button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading reviews:', error);
+            }
+        }
+
+        // Edit review
+        async function editReview(id) {
+            try {
+                const response = await fetch(`/api/review/${id}`);
+                const review = await response.json();
+                
+                const form = document.getElementById('editReviewForm');
+                form.id.value = review._id;
+                form.name.value = review.name;
+                form.rating.value = review.rating;
+                form.comment.value = review.comment;
+                
+                new bootstrap.Modal(document.getElementById('editReviewModal')).show();
+            } catch (error) {
+                console.error('Error loading review:', error);
+            }
+        }
+
+        // Update review
+        async function updateReview() {
+            const form = document.getElementById('editReviewForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const id = data.id;
+            delete data.id;
+            
+            try {
+                const response = await fetch(`/api/review/${id}?admin=true`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    bootstrap.Modal.getInstance(document.getElementById('editReviewModal')).hide();
+                    loadReviews();
+                }
+            } catch (error) {
+                console.error('Error updating review:', error);
+            }
+        }
+
+        // Delete review
+        async function deleteReview(id) {
+            if (confirm('Are you sure you want to delete this review?')) {
+                try {
+                    const response = await fetch(`/api/review/${id}?admin=true`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        loadReviews();
+                    }
+                } catch (error) {
+                    console.error('Error deleting review:', error);
+                }
+            }
+        }
+
+        // Load reviews when page loads
+        loadReviews();
+    </script>
+</body>
+</html> 

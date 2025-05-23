@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita Pizza",
+    "description": "Classic pizza with tomato, mozzarella, and basil.",
+    "price": 10.99
+  },
+  {
+    "id": 2,
+    "name": "Caesar Salad",
+    "description": "Crisp romaine, parmesan, croutons, and Caesar dressing.",
+    "price": 8.99
+  }
+] 
