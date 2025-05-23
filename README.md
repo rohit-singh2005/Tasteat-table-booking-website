@@ -34,7 +34,7 @@ A comprehensive restaurant management system built with Node.js and Express, fea
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/thetasteat.git
+git clone https://github.com/rohit-singh2005/Tasteat-table-booking-website.git
 cd thetasteat
 ```
 
