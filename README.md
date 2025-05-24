@@ -81,13 +81,9 @@ The application uses JSON files for data storage. The following endpoints are av
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Contact
 
-Your Name - your.email@example.com
+Your Name - rohitsdeopa@gmail.com
 
-Project Link: [https://github.com/yourusername/thetasteat](https://github.com/yourusername/thetasteat) 
+Project Link: [https://github.com/rohit-singh2005/Tasteat-table-booking-website](https://github.com/rohit-singh2005/Tasteat-table-booking-website) 
 >>>>>>> 51ddb65 (first commit)
